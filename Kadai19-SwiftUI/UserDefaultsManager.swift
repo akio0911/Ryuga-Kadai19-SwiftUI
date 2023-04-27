@@ -30,22 +30,3 @@ class UserDefaultsManager {
     }
 }
 
-//class UserDefaultsManager {
-//    static let shared = UserDefaultsManager()
-//
-//    private let todoItemsKey = "todoItems"
-//
-//    func saveTodoItems(_ items: [TodoItem]) {
-//        let data = try? JSONEncoder().encode(items)
-//        UserDefaults.standard.set(data, forKey: todoItemsKey)
-//    }
-//
-//    func loadTodoItems(defaultItems: [TodoItem]) -> [TodoItem] {
-//        guard let data = UserDefaults.standard.data(forKey: todoItemsKey) else {
-//            return defaultItems
-//        }
-//        let items = try? JSONDecoder().decode([TodoItem].self, from: data)
-//        return items ?? defaultItems
-//    }
-//}
-
