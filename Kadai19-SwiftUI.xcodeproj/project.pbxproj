@@ -11,6 +11,8 @@
 		D6E847A429F956AF00B5769B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E847A329F956AF00B5769B /* ContentView.swift */; };
 		D6E847A629F956B000B5769B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6E847A529F956B000B5769B /* Assets.xcassets */; };
 		D6E847A929F956B000B5769B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6E847A829F956B000B5769B /* Preview Assets.xcassets */; };
+		D6E847B029F9596E00B5769B /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E847AF29F9596E00B5769B /* AddItemView.swift */; };
+		D6E847CE29FAB45B00B5769B /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E847CD29FAB45B00B5769B /* UserDefaultsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		D6E847A329F956AF00B5769B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D6E847A529F956B000B5769B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6E847A829F956B000B5769B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D6E847AF29F9596E00B5769B /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
+		D6E847CD29FAB45B00B5769B /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,8 @@
 			children = (
 				D6E847A129F956AF00B5769B /* Kadai19_SwiftUIApp.swift */,
 				D6E847A329F956AF00B5769B /* ContentView.swift */,
+				D6E847AF29F9596E00B5769B /* AddItemView.swift */,
+				D6E847CD29FAB45B00B5769B /* UserDefaultsManager.swift */,
 				D6E847A529F956B000B5769B /* Assets.xcassets */,
 				D6E847A729F956B000B5769B /* Preview Content */,
 			);
@@ -138,6 +144,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6E847A429F956AF00B5769B /* ContentView.swift in Sources */,
+				D6E847B029F9596E00B5769B /* AddItemView.swift in Sources */,
+				D6E847CE29FAB45B00B5769B /* UserDefaultsManager.swift in Sources */,
 				D6E847A229F956AF00B5769B /* Kadai19_SwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
