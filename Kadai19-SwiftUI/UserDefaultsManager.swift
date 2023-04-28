@@ -10,19 +10,19 @@ import Foundation
 class UserDefaultsManager {
     static let shared = UserDefaultsManager()
 
-    private let todoItemsKey = "fruitItems"
+    private let fruitsKey = "fruitItems"
 
     func saveFruitItems(_ items: [Fruit]) {
         do {
             let data = try JSONEncoder().encode(items)
-            UserDefaults.standard.set(data, forKey: todoItemsKey)
+            UserDefaults.standard.set(data, forKey: fruitsKey)
         } catch {
             print("Failed to save fruit items: \(error.localizedDescription)")
         }
     }
 
     func loadFruitItems(defaultItems: [Fruit]) -> [Fruit] {
-        guard let data = UserDefaults.standard.data(forKey: todoItemsKey) else {
+        guard let data = UserDefaults.standard.data(forKey: fruitsKey) else {
             return defaultItems
         }
         let items = try? JSONDecoder().decode([Fruit].self, from: data)
