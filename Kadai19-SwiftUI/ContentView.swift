@@ -48,6 +48,7 @@ struct ContentView: View {
                         .onTapGesture {
                             if let index = fruits.firstIndex(of: fruit) {
                                 fruits[index].isChecked.toggle()
+                                UserDefaultsManager.shared.saveFruitItems(fruits)
                             }
                         }
                         HStack {
