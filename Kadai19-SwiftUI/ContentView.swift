@@ -28,7 +28,8 @@ struct ContentView: View {
             Fruit(name: "バナナ", isChecked: false),
             Fruit(name: "パイナップル", isChecked: true)
         ]
-        self._fruits = State(initialValue: UserDefaultsManager.shared.loadFruitItems(defaultItems: defaultItems))
+        let fruitItems = (try? UserDefaultsManager.shared.loadFruitItems()) ?? defaultItems
+        self._fruits = State(initialValue: fruitItems)
     }
     @State private var editMode: AddItemView.Mode?
 
@@ -48,7 +49,11 @@ struct ContentView: View {
                         .onTapGesture {
                             if let index = fruits.firstIndex(of: fruit) {
                                 fruits[index].isChecked.toggle()
-                                UserDefaultsManager.shared.saveFruitItems(fruits)
+                                do {
+                                    try UserDefaultsManager.shared.saveFruitItems(fruits)
+                                } catch {
+                                    print("Failed to save fruit items: \(error.localizedDescription)")
+                                }
                             }
                         }
                         HStack {
@@ -62,7 +67,11 @@ struct ContentView: View {
                                             didSave: { updatedFruit in
                                                 if let index = fruits.firstIndex(of: fruit) {
                                                     fruits[index] = updatedFruit
-                                                    UserDefaultsManager.shared.saveFruitItems(fruits)
+                                                    do {
+                                                        try UserDefaultsManager.shared.saveFruitItems(fruits)
+                                                    } catch {
+                                                        print("Failed to save fruit items: \(error.localizedDescription)")
+                                                    }
                                                 }
                                                 editMode = nil
                                             },
@@ -77,7 +86,11 @@ struct ContentView: View {
                 }
                 .onDelete { (offsets) in
                     self.fruits.remove(atOffsets: offsets)
-                    UserDefaultsManager.shared.saveFruitItems(fruits)
+                    do {
+                        try UserDefaultsManager.shared.saveFruitItems(fruits)
+                    } catch {
+                        print("Failed to save fruit items: \(error.localizedDescription)")
+                    }
                 }
             }
             .listStyle(.plain)
@@ -88,7 +101,11 @@ struct ContentView: View {
                         editMode = .create(
                             didSave: { newFruit in
                                 fruits.append(newFruit)
-                                UserDefaultsManager.shared.saveFruitItems(fruits)
+                                do {
+                                    try UserDefaultsManager.shared.saveFruitItems(fruits)
+                                } catch {
+                                    print("Failed to save fruit items: \(error.localizedDescription)")
+                                }
                                 editMode = nil
                             },
                             didCancel: {

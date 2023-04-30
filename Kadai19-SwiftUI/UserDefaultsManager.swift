@@ -8,25 +8,33 @@
 import Foundation
 
 class UserDefaultsManager {
+    enum Error: Swift.Error {
+        case saveError
+        case loadError
+    }
+
     static let shared = UserDefaultsManager()
 
     private let fruitsKey = "fruitItems"
 
-    func saveFruitItems(_ items: [Fruit]) {
+    func saveFruitItems(_ items: [Fruit]) throws {
         do {
             let data = try JSONEncoder().encode(items)
             UserDefaults.standard.set(data, forKey: fruitsKey)
         } catch {
-            print("Failed to save fruit items: \(error.localizedDescription)")
+            throw Error.saveError
         }
     }
 
-    func loadFruitItems(defaultItems: [Fruit]) -> [Fruit] {
+    func loadFruitItems() throws -> [Fruit] {
         guard let data = UserDefaults.standard.data(forKey: fruitsKey) else {
-            return defaultItems
+            throw Error.loadError
         }
-        let items = try? JSONDecoder().decode([Fruit].self, from: data)
-        return items ?? defaultItems
+        do {
+            return try JSONDecoder().decode([Fruit].self, from: data)
+        } catch {
+            throw Error.loadError
+        }
     }
 }
 
